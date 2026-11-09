@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cuidado & Carinho - Serviços de Babás de Confiança</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              yellow: '#F6B93B',
+              yellowHover: '#e0a328',
+              navy: '#0A3D62',
+              navyDark: '#06263e',
+              green: '#2ecc71',
+              greenLight: '#78E08F',
+              bgLight: '#F8F9FA'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Outfit', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    .badge-shadow {
+      box-shadow: 0 10px 25px -5px rgba(246, 185, 59, 0.3);
+    }
+    .card-hover {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .card-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 25px -5px rgba(10, 61, 98, 0.1), 0 10px 10px -5px rgba(10, 61, 98, 0.04);
+    }
+  </style>
+</head>
+<body class="bg-brand-bgLight text-slate-800 font-sans antialiased selection:bg-brand-yellow selection:text-brand-navy">
+
+  <!-- TOP ANNOUNCEMENT BAR -->
+  <div class="bg-brand-navy text-white text-xs md:text-sm py-2 px-4 text-center font-medium flex items-center justify-center gap-2">
+    <span class="bg-brand-yellow text-brand-navy text-xs font-bold px-2 py-0.5 rounded-full uppercase">Segurança 100%</span>
+    <span>Todas as nossas profissionais possuem certificação em Primeiros Socorros e antecedentes checados.</span>
+  </div>
+
+  <!-- HEADER / NAVBAR -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="w-12 h-12 rounded-2xl bg-brand-yellow flex items-center justify-center text-brand-navy text-2xl font-black shadow-md group-hover:scale-105 transition-transform">
+            <i class="fa-solid fa-heart"></i>
+          </div>
+          <div>
+            <span class="font-display font-black text-2xl text-brand-navy tracking-tight leading-none block">Cuidado & Carinho</span>
+            <span class="text-xs text-slate-500 font-medium tracking-wider uppercase">Serviços de Babás</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-8 font-medium text-slate-600">
+          <a href="#diferenciais" class="hover:text-brand-navy transition-colors">Segurança</a>
+          <a href="#servicos" class="hover:text-brand-navy transition-colors">Serviços</a>
+          <a href="#simulador" class="hover:text-brand-navy transition-colors">Simulador</a>
+          <a href="#depoimentos" class="hover:text-brand-navy transition-colors">Depoimentos</a>
+          <a href="#contato" class="hover:text-brand-navy transition-colors">Contato</a>
+        </nav>
+
+        <!-- CTA Action Buttons -->
+        <div class="hidden sm:flex items-center gap-3">
+          <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20de%20babá." target="_blank" class="flex items-center gap-2 bg-brand-greenLight/20 text-emerald-800 hover:bg-brand-greenLight/40 px-4 py-2.5 rounded-full text-sm font-semibold transition-all">
+            <i class="fa-brands fa-whatsapp text-lg text-emerald-600"></i>
+            <span>WhatsApp</span>
+          </a>
+          <a href="#orcamento" class="bg-brand-yellow hover:bg-brand-yellowHover text-brand-navy px-5 py-2.5 rounded-full text-sm font-bold shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5">
+            Solicitar Babá
+          </a>
+        </div>
+
+        <!-- Mobile menu button -->
+        <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 focus:outline-none">
+          <i class="fa-solid fa-bars text-2xl"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Navigation -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3">
+      <a href="#diferenciais" class="block py-2 text-slate-700 font-medium hover:text-brand-navy">Segurança & Seleção</a>
+      <a href="#servicos" class="block py-2 text-slate-700 font-medium hover:text-brand-navy">Nossos Serviços</a>
+      <a href="#simulador" class="block py-2 text-slate-700 font-medium hover:text-brand-navy">Simulador de Valores</a>
+      <a href="#depoimentos" class="block py-2 text-slate-700 font-medium hover:text-brand-navy">Depoimentos</a>
+      <a href="#contato" class="block py-2 text-slate-700 font-medium hover:text-brand-navy">Contato</a>
+      <div class="pt-4 border-t border-slate-100 flex flex-col gap-2">
+        <a href="#orcamento" class="w-full text-center bg-brand-yellow text-brand-navy py-3 rounded-xl font-bold shadow">Solicitar Babá</a>
+        <a href="https://wa.me/5511999999999" target="_blank" class="w-full text-center bg-emerald-100 text-emerald-800 py-3 rounded-xl font-bold flex items-center justify-center gap-2">
+          <i class="fa-brands fa-whatsapp text-xl text-emerald-600"></i> Falar no WhatsApp
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative overflow-hidden pt-12 pb-20 lg:pt-20 lg:pb-28 bg-gradient-to-b from-amber-50/60 via-brand-bgLight to-brand-bgLight">
+    <!-- Decorative background elements -->
+    <div class="absolute -top-12 -right-12 w-96 h-96 bg-brand-yellow/20 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-1/2 -left-20 w-80 h-80 bg-brand-greenLight/30 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        <!-- Left Hero Text Content -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-100 text-amber-900 font-semibold text-xs md:text-sm border border-amber-200">
+            <i class="fa-solid fa-star text-brand-yellow"></i>
+            <span>A melhor rede de profissionais infantis da região</span>
+          </div>
+          
+          <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl text-brand-navy leading-tight">
+            Cuidado humano, carinho sincero e <span class="relative inline-block text-slate-900">
+              segurança total
+              <svg class="absolute -bottom-2 left-0 w-full h-3 text-brand-yellow" viewBox="0 0 100 20" preserveAspectRatio="none">
+                <path d="M0 15 Q 50 0 100 15" stroke="currentColor" stroke-width="6" fill="transparent"/>
+              </svg>
+            </span> para os seus filhos.
+          </h1>
+
+          <p class="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
+            Conectamos sua família a babás altamente qualificadas, treinadas em primeiros socorros e pré-selecionadas com checagem rigorosa de antecedentes para garantir sua total tranquilidade.
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+            <a href="#orcamento" class="w-full sm:w-auto bg-brand-yellow hover:bg-brand-yellowHover text-brand-navy text-lg font-bold px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 flex items-center justify-center gap-3">
+              <span>Encontrar Babá Ideal</span>
+              <i class="fa-solid fa-arrow-right text-sm"></i>
+            </a>
+            
+            <a href="https://wa.me/5511999999999" target="_blank" class="w-full sm:w-auto bg-white hover:bg-slate-50 text-slate-700 text-lg font-semibold px-7 py-4 rounded-2xl border-2 border-slate-200 shadow-sm transition-all flex items-center justify-center gap-3">
+              <i class="fa-brands fa-whatsapp text-2xl text-emerald-500"></i>
+              <span>Falar pelo WhatsApp</span>
+            </a>
+          </div>
+
+          <!-- Quick Trust Metrics -->
+          <div class="pt-8 border-t border-slate-200/60 grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0 text-center lg:text-left">
+            <div>
+              <div class="font-display font-bold text-2xl md:text-3xl text-brand-navy">+1.200</div>
+              <div class="text-xs md:text-sm text-slate-500 font-medium">Famílias Atendidas</div>
+            </div>
+            <div>
+              <div class="font-display font-bold text-2xl md:text-3xl text-brand-navy">100%</div>
+              <div class="text-xs md:text-sm text-slate-500 font-medium">Com Ficha Limpa</div>
+            </div>
+            <div>
+              <div class="font-display font-bold text-2xl md:text-3xl text-brand-navy">4.9 ★</div>
+              <div class="text-xs md:text-sm text-slate-500 font-medium">Avaliação Média</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Hero Media Composition -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative mx-auto max-w-md lg:max-w-none">
+            
+            <!-- Main Hero Image (Real Human Photo) -->
+            <div class="rounded-3xl overflow-hidden shadow-2xl border-8 border-white bg-white">
+              <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80" alt="Babá cuidadosa brincando e lendo livro com criança" class="w-full h-[450px] object-cover object-center">
+            </div>
+
+            <!-- Floating Badge 1: Verification -->
+            <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3 animate-bounce-slow">
+              <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl font-bold">
+                <i class="fa-solid fa-user-shield"></i>
+              </div>
+              <div>
+                <p class="text-xs text-slate-400 uppercase tracking-wider font-bold">Segurança</p>
+                <p class="text-sm font-bold text-brand-navy">Babás 100% Verificadas</p>
+              </div>
+            </div>
+
+            <!-- Floating Badge 2: CPR Certified -->
+            <div class="absolute -top-6 -right-6 bg-brand-yellow text-brand-navy p-4 rounded-2xl shadow-lg flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-brand-navy text-white flex items-center justify-center text-lg">
+                <i class="fa-solid fa-kit-medical"></i>
+              </div>
+              <div>
+                <p class="text-xs font-extrabold uppercase opacity-80">Treinamento</p>
+                <p class="text-sm font-bold">Primeiros Socorros OK</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SEGURANÇA E PROCESSO DE SELEÇÃO -->
+  <section id="diferenciais" class="py-16 bg-white border-y border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-xs font-extrabold text-brand-navy uppercase tracking-widest bg-amber-100 inline-block px-3 py-1 rounded-full mb-3">Protocolo de Confiança</h2>
+        <p class="font-display text-3xl sm:text-4xl font-extrabold text-brand-navy">Como Garantimos a Segurança do Seu Filho</p>
+        <p class="text-slate-600 mt-3 text-lg">Não apenas indicamos babás; realizamos uma filtragem minuciosa de 5 etapas antes que qualquer profissional entre na sua casa.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        
+        <!-- Step 1 -->
+        <div class="bg-brand-bgLight p-6 rounded-2xl border border-slate-200/80 relative card-hover">
+          <div class="w-12 h-12 rounded-xl bg-brand-navy text-brand-yellow font-display font-black text-xl flex items-center justify-center mb-4">
+            01
+          </div>
+          <h3 class="font-display font-bold text-xl text-brand-navy mb-2">Checagem de Antecedentes</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">Verificação profunda de certidões criminais, histórico judicial e validação de documentos pessoais.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="bg-brand-bgLight p-6 rounded-2xl border border-slate-200/80 relative card-hover">
+          <div class="w-12 h-12 rounded-xl bg-brand-yellow text-brand-navy font-display font-black text-xl flex items-center justify-center mb-4">
+            02
+          </div>
+          <h3 class="font-display font-bold text-xl text-brand-navy mb-2">Entrevista Psicológica</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">Avaliação comportamental rigorosa para medir paciência, equilíbrio emocional e aptidão com crianças.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="bg-brand-bgLight p-6 rounded-2xl border border-slate-200/80 relative card-hover">
+          <div class="w-12 h-12 rounded-xl bg-brand-greenLight text-brand-navy font-display font-black text-xl flex items-center justify-center mb-4">
+            03
+          </div>
+          <h3 class="font-display font-bold text-xl text-brand-navy mb-2">Primeiros Socorros</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">Certificação obrigatória em suporte básico de vida, desengasgo infantil e prevenção de acidentes domésticos.</p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="bg-brand-bgLight p-6 rounded-2xl border border-slate-200/80 relative card-hover">
+          <div class="w-12 h-12 rounded-xl bg-emerald-700 text-white font-display font-black text-xl flex items-center justify-center mb-4">
+            04
+          </div>
+          <h3 class="font-display font-bold text-xl text-brand-navy mb-2">Checagem de Referências</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">Contatos diretos com famílias anteriores para confirmação de pontualidade, afeto e conduta ética.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SERVIÇOS PRESTADOS -->
+  <section id="servicos" class="py-20 bg-brand-bgLight">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div>
+          <h2 class="text-xs font-extrabold text-brand-navy uppercase tracking-widest bg-amber-200/70 inline-block px-3 py-1 rounded-full mb-3">Soluções para sua Rotina</h2>
+          <p class="font-display text-3xl sm:text-4xl font-extrabold text-brand-navy">Serviços Moldados para Sua Família</p>
+        </div>
+        <p class="text-slate-600 max-w-md mt-4 md:mt-0">Seja para o dia a dia completo ou para um compromisso de última hora, temos a profissional certa.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        
+        <!-- Card Serviço 1 -->
+        <div class="bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-sm card-hover flex flex-col">
+          <div class="h-56 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=700&q=80" alt="Babá brincando ao ar livre" class="w-full h-full object-cover">
+            <span class="absolute top-4 left-4 bg-brand-navy text-white text-xs font-bold px-3 py-1 rounded-full uppercase">Mais Solicitado</span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-display font-bold text-2xl text-brand-navy mb-3">Babá Mensalista / Diarista</h3>
+              <p class="text-slate-600 text-sm leading-relaxed mb-4">Apoio contínuo e diário. Cuidados gerais com alimentação infantil saudável, banho, higiene, passeios e organização da rotina.</p>
+              <ul class="space-y-2 text-xs font-semibold text-slate-700 mb-6">
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Horários fixos personalizados</li>
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Atividades de estímulo cognitivo</li>
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Relatório diário de rotina</li>
+              </ul>
+            </div>
+            <a href="#orcamento" class="w-full text-center bg-slate-100 hover:bg-brand-yellow hover:text-brand-navy text-slate-800 font-bold py-3 rounded-xl transition-all block">Solicitar este Serviço</a>
+          </div>
+        </div>
+
+        <!-- Card Serviço 2 -->
+        <div class="bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-sm card-hover flex flex-col">
+          <div class="h-56 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1581952976147-5a2d15560ed4?auto=format&fit=crop&w=700&q=80" alt="Criança dormindo com acompanhamento de babá noturna" class="w-full h-full object-cover">
+            <span class="absolute top-4 left-4 bg-brand-yellow text-brand-navy text-xs font-bold px-3 py-1 rounded-full uppercase">Flexibilidade</span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-display font-bold text-2xl text-brand-navy mb-3">Babá Eventual / Noturna</h3>
+              <p class="text-slate-600 text-sm leading-relaxed mb-4">Para jantares, eventos de trabalho, casamentos, viagens de fim de semana ou simplesmente para os pais descansarem.</p>
+              <ul class="space-y-2 text-xs font-semibold text-slate-700 mb-6">
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Chamadas sob demanda (24/7)</li>
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Pernoite seguro no domicílio</li>
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Acompanhamento em eventos</li>
+              </ul>
+            </div>
+            <a href="#orcamento" class="w-full text-center bg-slate-100 hover:bg-brand-yellow hover:text-brand-navy text-slate-800 font-bold py-3 rounded-xl transition-all block">Solicitar este Serviço</a>
+          </div>
+        </div>
+
+        <!-- Card Serviço 3 -->
+        <div class="bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-sm card-hover flex flex-col">
+          <div class="h-56 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=700&q=80" alt="Babá ajudando criança em lição de casa" class="w-full h-full object-cover">
+            <span class="absolute top-4 left-4 bg-brand-greenLight text-brand-navy text-xs font-bold px-3 py-1 rounded-full uppercase">Pedagógico</span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-display font-bold text-2xl text-brand-navy mb-3">Reforço & Recreação</h3>
+              <p class="text-slate-600 text-sm leading-relaxed mb-4">Foco no desenvolvimento infantil com auxílio nas tarefas escolares, leitura, jogos pedagógicos e brincadeiras longe das telas.</p>
+              <ul class="space-y-2 text-xs font-semibold text-slate-700 mb-6">
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Apoio em tarefas de casa</li>
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Desconexão de eletrônicos</li>
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Jogos de raciocínio e artes</li>
+              </ul>
+            </div>
+            <a href="#orcamento" class="w-full text-center bg-slate-100 hover:bg-brand-yellow hover:text-brand-navy text-slate-800 font-bold py-3 rounded-xl transition-all block">Solicitar este Serviço</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- INTERACTIVE SIMULATOR SECTION -->
+  <section id="simulador" class="py-16 bg-brand-navy text-white relative overflow-hidden">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="bg-slate-900/60 backdrop-blur-md p-8 sm:p-12 rounded-3xl border border-white/10 shadow-2xl">
+        
+        <div class="text-center max-w-2xl mx-auto mb-10">
+          <span class="text-brand-yellow text-xs font-bold uppercase tracking-widest bg-brand-yellow/10 px-3 py-1 rounded-full">Ferramenta Interativa</span>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold mt-2">Simule a Necessidade da Sua Família</h2>
+          <p class="text-slate-300 text-sm mt-2">Selecione as opções abaixo para estimar o perfil de atendimento ideal.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 mb-8 text-slate-800">
+          
+          <!-- Quantidade de Crianças -->
+          <div class="bg-white p-5 rounded-2xl">
+            <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Número de Crianças</label>
+            <select id="simKidCount" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 font-semibold focus:outline-none focus:ring-2 focus:ring-brand-yellow">
+              <option value="1">1 Criança</option>
+              <option value="2">2 Crianças</option>
+              <option value="3">3 ou mais Crianças</option>
+            </select>
+          </div>
+
+          <!-- Tipo de Jornada -->
+          <div class="bg-white p-5 rounded-2xl">
+            <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Frequência</label>
+            <select id="simFrequency" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 font-semibold focus:outline-none focus:ring-2 focus:ring-brand-yellow">
+              <option value="mensal">Integral (Mensalista)</option>
+              <option value="meio">Meio Período</option>
+              <option value="eventual">Eventual (Por hora)</option>
+            </select>
+          </div>
+
+          <!-- Período Predominante -->
+          <div class="bg-white p-5 rounded-2xl">
+            <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Horário Principal</label>
+            <select id="simShift" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 font-semibold focus:outline-none focus:ring-2 focus:ring-brand-yellow">
+              <option value="diurno">Diurno (Comercial)</option>
+              <option value="noturno">Noturno / Pernoite</option>
+              <option value="fimdesemana">Fins de Semana</option>
+            </select>
+          </div>
+
+        </div>
+
+        <!-- Simulation Result Box -->
+        <div class="bg-white/10 border border-white/20 p-6 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6">
+          <div>
+            <p class="text-xs text-amber-300 font-bold uppercase">Recomendação Personalizada</p>
+            <h4 id="simResultTitle" class="text-xl font-bold text-white mt-1">Plano Babá Mensalista Dedicada</h4>
+            <p id="simResultDesc" class="text-xs text-slate-300 mt-1">Ideal para famílias que buscam acompanhamento diário com rotina pedagógica.</p>
+          </div>
+          <a href="#orcamento" class="whitespace-nowrap bg-brand-yellow hover:bg-brand-yellowHover text-brand-navy font-bold px-6 py-3 rounded-xl transition-all shadow-md">
+            Receber Proposta Completa
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS REALISTAS DE PAIS -->
+  <section id="depoimentos" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-xs font-extrabold text-brand-navy uppercase tracking-widest bg-emerald-100 inline-block px-3 py-1 rounded-full mb-3">Histórias Reais</h2>
+        <p class="font-display text-3xl sm:text-4xl font-extrabold text-brand-navy">O Que Dizem os Pais Que Confiam em Nós</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        
+        <!-- Depoimento 1 -->
+        <div class="bg-brand-bgLight p-8 rounded-3xl border border-slate-200/70 relative flex flex-col justify-between">
+          <div>
+            <div class="flex text-amber-400 gap-1 text-sm mb-4">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-slate-700 text-sm leading-relaxed italic mb-6">
+              "A tranquilidade de sair para trabalhar sabendo que meus dois filhos estão com uma profissional atenciosa, treinada e extremamente carinhosa não tem preço. O processo de seleção da empresa foi impecável."
+            </p>
+          </div>
+          <div class="flex items-center gap-4 pt-4 border-t border-slate-200">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" alt="Foto de Mariana Silva" class="w-12 h-12 rounded-full object-cover border-2 border-brand-yellow">
+            <div>
+              <h4 class="font-bold text-brand-navy text-sm">Mariana Silva</h4>
+              <p class="text-xs text-slate-500">Mãe do Leo (3 anos) e Clara (6 anos)</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Depoimento 2 -->
+        <div class="bg-brand-bgLight p-8 rounded-3xl border border-slate-200/70 relative flex flex-col justify-between">
+          <div>
+            <div class="flex text-amber-400 gap-1 text-sm mb-4">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-slate-700 text-sm leading-relaxed italic mb-6">
+              "Precisávamos de apoio eventual para plantões noturnos. Fomos atendidos super rápido. A babá enviada foi pontual, carinhosa e nos manteve informados o tempo todo por foto e mensagem."
+            </p>
+          </div>
+          <div class="flex items-center gap-4 pt-4 border-t border-slate-200">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" alt="Foto de Carlos Eduardo" class="w-12 h-12 rounded-full object-cover border-2 border-brand-yellow">
+            <div>
+              <h4 class="font-bold text-brand-navy text-sm">Dr. Carlos Eduardo</h4>
+              <p class="text-xs text-slate-500">Pai do Henrique (2 anos)</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Depoimento 3 -->
+        <div class="bg-brand-bgLight p-8 rounded-3xl border border-slate-200/70 relative flex flex-col justify-between">
+          <div>
+            <div class="flex text-amber-400 gap-1 text-sm mb-4">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-slate-700 text-sm leading-relaxed italic mb-6">
+              "O diferencial para nós foi a formação em primeiros socorros e o foco em brincadeiras sem telas. Minha filha desenvolveu a fala muito mais rápido depois do acompanhamento pedagógico."
+            </p>
+          </div>
+          <div class="flex items-center gap-4 pt-4 border-t border-slate-200">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80" alt="Foto de Beatriz Souza" class="w-12 h-12 rounded-full object-cover border-2 border-brand-yellow">
+            <div>
+              <h4 class="font-bold text-brand-navy text-sm">Beatriz Souza</h4>
+              <p class="text-xs text-slate-500">Mãe da Alice (4 anos)</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FORMULÁRIO DE SOLICITAÇÃO / ORÇAMENTO -->
+  <section id="orcamento" class="py-20 bg-gradient-to-b from-brand-bgLight to-amber-50/50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="bg-white rounded-3xl shadow-xl border border-slate-200/80 p-8 sm:p-12">
+        <div class="text-center max-w-xl mx-auto mb-10">
+          <h2 class="font-display text-3xl font-extrabold text-brand-navy">Solicitar Orçamento sem Compromisso</h2>
+          <p class="text-slate-600 text-sm mt-2">Preencha os dados abaixo. Nossa equipe entrará em contato em até 2 horas úteis para apresentar os perfis disponíveis.</p>
+        </div>
+
+        <form id="leadForm" onsubmit="handleFormSubmit(event)" class="space-y-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            
+            <!-- Nome -->
+            <div>
+              <label class="block text-xs font-bold text-slate-700 uppercase mb-2">Seu Nome Completo *</label>
+              <input type="text" required placeholder="Ex: Ana Paula Ribeiro" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-brand-yellow">
+            </div>
+
+            <!-- Telefone WhatsApp -->
+            <div>
+              <label class="block text-xs font-bold text-slate-700 uppercase mb-2">WhatsApp / Telefone *</label>
+              <input type="tel" required placeholder="(11) 99999-9999" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-brand-yellow">
+            </div>
+
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            
+            <!-- Bairro / Cidade -->
+            <div>
+              <label class="block text-xs font-bold text-slate-700 uppercase mb-2">Seu Bairro / Cidade *</label>
+              <input type="text" required placeholder="Ex: Jardins - São Paulo" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-brand-yellow">
+            </div>
+
+            <!-- Serviço Desejado -->
+            <div>
+              <label class="block text-xs font-bold text-slate-700 uppercase mb-2">Serviço de Interesse *</label>
+              <select required class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-brand-yellow">
+                <option value="">Selecione o serviço...</option>
+                <option value="mensal">Babá Mensalista (Rotina Diária)</option>
+                <option value="eventual">Babá Eventual / Noturna</option>
+                <option value="escolar">Acompanhamento Escolar & Recreação</option>
+                <option value="outro">Outro / Necessidade Específica</option>
+              </select>
+            </div>
+
+          </div>
+
+          <!-- Idade das crianças & Observações -->
+          <div>
+            <label class="block text-xs font-bold text-slate-700 uppercase mb-2">Idade das crianças e detalhes importantes</label>
+            <textarea rows="3" placeholder="Ex: Tenho 1 bebê de 8 meses e uma criança de 4 anos. Preciso de atendimento das 13h às 18h." class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3.5 text-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-brand-yellow"></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="w-full bg-brand-yellow hover:bg-brand-yellowHover text-brand-navy font-bold text-lg py-4 rounded-xl shadow-lg transition-all hover:shadow-xl">
+            Receber Apresentação de Babás
+          </button>
+        </form>
+
+        <!-- Form Success State Message Box (Hidden by default) -->
+        <div id="formSuccessMessage" class="hidden mt-6 p-4 bg-emerald-50 border border-emerald-200 rounded-xl text-center text-emerald-800 font-semibold">
+          <i class="fa-solid fa-circle-check text-2xl mb-1 text-emerald-600 block"></i>
+          Solicitação recebida com sucesso! Em breve entraremos em contato com você pelo WhatsApp.
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TRABALHE CONOSCO CTA BAR -->
+  <section class="bg-brand-navy text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div>
+        <h3 class="font-display text-2xl font-bold">É uma profissional da área infantil?</h3>
+        <p class="text-slate-300 text-sm mt-1">Faça parte da nossa rede seletiva de babás e acompanhantes infantis.</p>
+      </div>
+      <button onclick="openModalCandidate()" class="bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3 rounded-xl border border-white/20 transition-all text-sm whitespace-nowrap">
+        Cadastrar meu Currículo
+      </button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contato" class="bg-slate-900 text-slate-400 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+        
+        <!-- Coluna 1: Info -->
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-brand-yellow flex items-center justify-center text-brand-navy text-xl font-black">
+              <i class="fa-solid fa-heart"></i>
+            </div>
+            <span class="font-display font-bold text-xl text-white">Cuidado & Carinho</span>
+          </div>
+          <p class="text-sm leading-relaxed">Conectando famílias a profissionais de cuidado infantil qualificadas, atenciosas e 100% verificadas.</p>
+        </div>
+
+        <!-- Coluna 2: Navegação -->
+        <div>
+          <h4 class="text-white font-bold mb-4 text-sm uppercase tracking-wider">Navegação</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#diferenciais" class="hover:text-white transition-colors">Processo de Seleção</a></li>
+            <li><a href="#servicos" class="hover:text-white transition-colors">Nossos Serviços</a></li>
+            <li><a href="#simulador" class="hover:text-white transition-colors">Simulador</a></li>
+            <li><a href="#depoimentos" class="hover:text-white transition-colors">Avaliações de Pais</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna 3: Atendimento -->
+        <div>
+          <h4 class="text-white font-bold mb-4 text-sm uppercase tracking-wider">Atendimento</h4>
+          <ul class="space-y-2 text-sm">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-phone text-brand-yellow"></i> (11) 99999-9999</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-envelope text-brand-yellow"></i> contato@cuidadoecarinho.com.br</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-brand-yellow"></i> São Paulo - SP</li>
+          </ul>
+        </div>
+
+        <!-- Coluna 4: Redes Sociais -->
+        <div>
+          <h4 class="text-white font-bold mb-4 text-sm uppercase tracking-wider">Siga-nos</h4>
+          <div class="flex gap-3">
+            <a href="#" class="w-10 h-10 rounded-full bg-slate-800 hover:bg-brand-yellow hover:text-brand-navy flex items-center justify-center transition-colors"><i class="fa-brands fa-instagram text-lg"></i></a>
+            <a href="#" class="w-10 h-10 rounded-full bg-slate-800 hover:bg-brand-yellow hover:text-brand-navy flex items-center justify-center transition-colors"><i class="fa-brands fa-facebook-f text-lg"></i></a>
+            <a href="https://wa.me/5511999999999" target="_blank" class="w-10 h-10 rounded-full bg-slate-800 hover:bg-brand-greenLight hover:text-brand-navy flex items-center justify-center transition-colors"><i class="fa-brands fa-whatsapp text-lg"></i></a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="border-t border-slate-800 pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500">
+        <p>&copy; 2026 Cuidado & Carinho Serviços Infantis. Todos os direitos reservados.</p>
+        <p class="mt-2 sm:mt-0">Desenvolvido com carinho para a segurança da sua família.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL CANDIDATAS (TRABALHE CONOSCO) -->
+  <div id="candidateModal" class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 relative shadow-2xl">
+      <button onclick="closeModalCandidate()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-xl">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      
+      <div class="text-center mb-6">
+        <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-700 mx-auto flex items-center justify-center text-xl font-bold mb-3">
+          <i class="fa-solid fa-id-card"></i>
+        </div>
+        <h3 class="font-display font-bold text-2xl text-brand-navy">Trabalhe Conosco</h3>
+        <p class="text-slate-500 text-xs mt-1">Envie seus dados para participar do processo seletivo de babás.</p>
+      </div>
+
+      <form onsubmit="handleCandidateSubmit(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Nome Completo</label>
+          <input type="text" required placeholder="Seu nome" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-yellow">
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase mb-1">WhatsApp</label>
+          <input type="tel" required placeholder="(11) 99999-9999" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-yellow">
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Tempo de Experiência como Babá</label>
+          <select required class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-yellow">
+            <option value="1">Menos de 1 ano</option>
+            <option value="2">De 1 a 3 anos</option>
+            <option value="3">Mais de 3 anos</option>
+          </select>
+        </div>
+        <button type="submit" class="w-full bg-brand-navy hover:bg-brand-navyDark text-white font-bold py-3.5 rounded-xl shadow transition-all">
+          Enviar Cadastro
+        </button>
+      </form>
+
+      <div id="candidateSuccess" class="hidden mt-4 p-3 bg-emerald-50 text-emerald-800 text-center text-xs font-semibold rounded-xl">
+        Cadastro enviado! Entraremos em contato caso seu perfil seja pré-aprovado.
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT LÓGICA E INTERAÇÕES -->
+  <script>
+    // Toggle Mobile Menu
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close mobile menu on link click
+    document.querySelectorAll('#mobileMenu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Interactive Simulator Update Logic
+    const simKidCount = document.getElementById('simKidCount');
+    const simFrequency = document.getElementById('simFrequency');
+    const simShift = document.getElementById('simShift');
+    const simResultTitle = document.getElementById('simResultTitle');
+    const simResultDesc = document.getElementById('simResultDesc');
+
+    function updateSimulator() {
+      const freq = simFrequency.value;
+      const kids = simKidCount.value;
+
+      if (freq === 'mensal') {
+        simResultTitle.innerText = `Plano Mensalista Dedicado (${kids} criança${kids > 1 ? 's' : ''})`;
+        simResultDesc.innerText = "Acompanhamento diário com rotina pedagógica, higiene e preparação de refeições.";
+      } else if (freq === 'meio') {
+        simResultTitle.innerText = `Plano Meio Período / Turno (${kids} criança${kids > 1 ? 's' : ''})`;
+        simResultDesc.innerText = "Ideal para o momento de entrada/saída da escola e auxílio nas lições de casa.";
+      } else {
+        simResultTitle.innerText = `Atendimento Eventual Sob Demanda (${kids} criança${kids > 1 ? 's' : ''})`;
+        simResultDesc.innerText = "Profissional disponível para turnos pontuais, noites ou finais de semana.";
+      }
+    }
+
+    simKidCount.addEventListener('change', updateSimulator);
+    simFrequency.addEventListener('change', updateSimulator);
+    simShift.addEventListener('change', updateSimulator);
+
+    // Form Lead Handling (Without alert)
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const msg = document.getElementById('formSuccessMessage');
+      msg.classList.remove('hidden');
+      document.getElementById('leadForm').reset();
+      setTimeout(() => {
+        msg.classList.add('hidden');
+      }, 6000);
+    }
+
+    // Modal Candidate Functions
+    function openModalCandidate() {
+      document.getElementById('candidateModal').classList.remove('hidden');
+    }
+
+    function closeModalCandidate() {
+      document.getElementById('candidateModal').classList.add('hidden');
+      document.getElementById('candidateSuccess').classList.add('hidden');
+    }
+
+    function handleCandidateSubmit(e) {
+      e.preventDefault();
+      const successMsg = document.getElementById('candidateSuccess');
+      successMsg.classList.remove('hidden');
+      setTimeout(() => {
+        closeModalCandidate();
+      }, 3000);
+    }
+  </script>
+
+</body>
+</html>
